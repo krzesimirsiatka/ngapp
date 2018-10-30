@@ -30,8 +30,10 @@ jobs:
       - run: yarn test
   
   deploy:
-    machine:
-        enabled: true
+    docker:
+      - image: circleci/buildpack-deps:jessie-curl    
+    # machine:
+    #     enabled: true
     working_directory: ~/repo
     environment:
     steps:
