@@ -33,13 +33,12 @@ jobs:
     machine:
         enabled: true
     working_directory: ~/repo
+    environment:
     steps:
       - checkout
       - run:
           name: Docker Hub Trigger
-          command: |
-          curl -H \"Content-Type: application/json\" --data '{\"build\": true}' -X POST \
-            https://registry.hub.docker.com/u/siata/ngapp/trigger/55be68ea-02e4-42d8-bd1b-cb4baa1c764c/
+          command: ${DOCKER_HUB_TRIGGER}
     
 workflows:
   version: 2
