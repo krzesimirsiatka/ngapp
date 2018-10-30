@@ -37,13 +37,16 @@ jobs:
       - run: yarn test
   
   deploy:
+     machine:
+        enabled: true
+
     working_directory: ~/repo
 
     steps:
       - checkout
 
       - run:
-          name: DockerHubTrigger
+          name: Docker Hub Trigger
           command: $DOCKER_HUB_TRIGGER
     
 
